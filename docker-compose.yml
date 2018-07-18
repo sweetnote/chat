@@ -1,0 +1,22 @@
+version: "2"
+services:
+    swoole:
+        build: .
+        volumes:
+            - /c/Users/tu6ge/www/chat2:/var/www/html
+        ports:
+            - "80:80"
+            - "9501:9501"
+            - "9000:9000"
+        depends_on:
+            - mysql
+        links:
+            - "mysql:mysql"
+    mysql:
+        image: mysql:5.6
+        #volumes:
+        #    - /c/Users/tu6ge/www/chat2/data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 87515547dsaui
